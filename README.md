@@ -1,8 +1,8 @@
 
-# <div align="center">📋 Breaking Bad Quotes</div>
+# <div align="center">📋 Breaking Bad´s Quote App</div>
 
 <a href="https://epic-nobel-6e19d0.netlify.app/">
-<img src="./main.png"/>
+<img src="./main2.png"/>
                              </a>
 <p align="center">This a Breaking Bad´s quote app using react. The quotes are brought from an API </p>
 
