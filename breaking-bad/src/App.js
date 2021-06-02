@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import styled from "@emotion/styled";
 import Frase from "./components/Frase"
 
@@ -24,6 +24,13 @@ const Boton = styled.button`
   padding: 1rem 3rem;
   font-size: 2rem;
   border: 2 px solid black;
+  transition:background-size .8s ease;
+  
+  :hover{
+    cursor:pointer;
+    background-size: 400;
+  }
+
 `;
 
 function App() {
@@ -43,6 +50,11 @@ function App() {
     const frase = await api.json();
     guardarFrase(frase[0]);
   };
+  
+  //Cargar una frase de manera automatica cuando entremos a la app
+  useEffect( ()=>{
+    consultarAPI()
+  },[]);
 
   return (
     <Contenedor>
