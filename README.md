@@ -25,7 +25,7 @@
 
 ```
 $ git clone https://github.com/cneme23/breakingBadQuotes.git
-$ cd BudgetManager/budget-manager
+$ cd BudgetManager/breakingBadQuotes/breaking-bad
 $ npm install
 $ npm start
 ```
