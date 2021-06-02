@@ -1,6 +1,6 @@
 import {useState} from "react";
-import logo from "./logo.svg";
 import styled from "@emotion/styled";
+import Frase from "./components/Frase"
 
 
 const Contenedor = styled.div`
@@ -28,24 +28,27 @@ const Boton = styled.button`
 
 function App() {
   //state de frases
-  
+  const [frase, guardarFrase]= useState({});
   
   
   //Consultar Api I
-  const consultarAPI = () => {
-    const api = fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
-    const frase = api.then((respuesta) => respuesta.json());
-    frase.then((resultado) => console.log(resultado));
-  };
-//Consultar Api II
-  // const consultarAPI = async () => {
-  //   const api = await fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
-  //   const frase = await api.json();
-  //   console.log(frase[0]);
+  // const consultarAPI = () => {
+  //   const api = fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
+  //   const frase = api.then((respuesta) => respuesta.json());
+  //   frase.then((resultado) => console.log(resultado));
   // };
+//Consultar Api II
+  const consultarAPI = async () => {
+    const api = await fetch("https://breaking-bad-quotes.herokuapp.com/v1/quotes");
+    const frase = await api.json();
+    guardarFrase(frase[0]);
+  };
 
   return (
     <Contenedor>
+      <Frase 
+        frase={frase}
+      />
       <Boton onClick={consultarAPI}>
         {/* onClick= {()=> consultarAPI()} -------> Esta seria la forma alternativa para que se ejecute la funcion cuando ocurra el evento */}
         Obtener frase
